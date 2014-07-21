@@ -9,8 +9,8 @@ jQuery ->
   app = $('[data-fb-app-id]').val()
 
 window.fbAsyncInit = ->
-  #FB.init(appId: '588832501224049', cookie: true) # Nordics producstion
-  FB.init(appId: app, cookie: true) # Nordics test
+
+  FB.init(appId: app, cookie: true)
 
   $('#sign_in').click (e) ->
     FB.getLoginStatus (response) ->
