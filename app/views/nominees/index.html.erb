@@ -1,0 +1,77 @@
+<div class="instructions text-center">
+<div data-alert class="alert-box warning radius safari">
+  At the moment you may experience some issues logging in with Safari. We are working to resolve the issue. In the meantime, please try using Chrome or Firefox or alternatively you can vote on <a href="http://murmuring-mountain-9361.herokuapp.com">this link</a>.
+  <a href="#" class="close">&times;</a>
+</div>
+<div data-alert class="alert-box warning radius general">
+  We have detected that there might be some issues with the browser you are using. If you experience any issues you can try voting on <a href="http://murmuring-mountain-9361.herokuapp.com">this link</a> or <a href="mailto:hello@nordicstartupawards.com">contact us here</a>.
+  <a href="#" class="close">&times;</a>
+</div>
+  <% if current_user  %>
+  <p>Please sign in with Facebook to enable voting.</p>
+  <% end  %>
+  <p>You only have one vote in each category for all countries, so use it wisely.</p>
+  <p><small></small></p>
+</div>
+<div class="row buttons">
+  <div class="small-4 medium-3 columns">
+    <% if current_user  %>
+      <%= link_to "Sign out", signout_path, id: "sign_out", class: "button" %>
+    <% else  %>
+      <%= link_to "Facebook sign in", "/auth/facebook", id: "sign_in", class: "button" %>
+      <p class="button-notice text-center"><small>Sign in to enable voting</small></p>
+    <% end  %>
+  </div>
+  <% if true  %>
+  <div class="small-4 columns">
+    <a href="#" data-dropdown="drop-country" class="button dropdown">Country</a><br>
+    <ul id="drop-country" data-dropdown-content class="f-dropdown">
+      <li><%= link_to "All", :country => "all", :category => session[:category] %></li>
+      <!-- <li><a data-no-turbolink='true' href="?country=all">All</a></li> -->
+      <% countries = controller.get_countries %>
+      <% countries.each do |element|  %>
+        <% if session[:country] == element.country  %>
+        <li class="active">
+        <% else  %>
+        <li>
+        <% end  %>
+          <%= link_to element.country, :country => element.country, :category => session[:category] %>
+          <!-- <a data-no-turbolink='true' href="/?country=<%= element.country  %>"><%= element.country  %></a> -->
+        </li>
+      <% end  %>
+    </ul>
+  </div>
+  <div class="small-4 columns">
+    <a href="#" data-dropdown="drop-category" class="button dropdown">Category</a><br>
+    <ul id="drop-category" data-dropdown-content class="f-dropdown">
+      <li>
+        <%= link_to "All", :country => session[:country], :category => 'all'  %>
+      <% categories = controller.get_categories  %>
+      <% categories.each do |element|  %>
+        <% if session[:category] == element.id  %>
+        <li class="active">
+        <% else  %>
+        <li>
+        <% end  %>
+          <%= link_to element.name, :country => session[:country], :category => element.id %>
+        </li>
+      <% end  %>
+    </ul>
+  </div>
+  <% end  %>
+  <div class="pagination small-12 columns">
+    <%= will_paginate @nominee, renderer: FoundationPagination::Rails  %>
+  </div>
+</div>
+<div class="row">
+  <% @nominee.each do |nom|  %>
+    <div class="nominee small-12 medium-6 columns" id="<%= nom.id  %>">
+      <% # binding.pry if nom.id == 4 || nom.id == 10 || nom.id == 11 || nom.id == 17 || nom.id == 18 %>
+      <% if nom.category.is_individual %>
+        <%= render partial: 'individual', locals: { nom: nom }  %>
+      <% else %>
+        <%= render partial: "startup", locals: { nom: nom }  %>
+      <% end -%>
+    </div>
+  <% end %>
+</div>

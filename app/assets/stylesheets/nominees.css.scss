@@ -1,0 +1,65 @@
+@import "foundation_and_overrides";
+
+// Place all the styles related to the nominees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Row margins
+.filters {
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
+.row {
+  &.facebook-login {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  &.country, &.company {
+    margin-bottom: 0.7em;
+  }
+  &.category {
+    margin-bottom: 1em;
+  }
+}
+.nominee {
+  margin-top: 1em;
+  margin-bottom: 3em;
+  
+  h4 {
+    margin-bottom: 0;
+  }
+  .description {
+    text-align: justify;
+  }
+  .description {
+    min-height: 15em;
+  }
+  .title {
+    line-height: 1;
+    margin-top: 0px;
+    margin-bottom: 0.5em;
+  }
+  .vote {
+    .button {
+      margin-bottom: 0.2em;
+    }
+
+  }
+  .website {
+    word-wrap: break-word;
+  }
+  .button, .button.disabled {
+    width: 100%;
+  }
+}
+.row.buttons {
+  .pagination {
+    padding-top: 0.4em;
+  }
+}
+// @media #{$medium-only} {
+//   a.button {
+//     font-size: 0.8em;
+//     padding-left: 20px;
+//   }
+// }

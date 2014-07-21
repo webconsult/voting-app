@@ -1,0 +1,57 @@
+<% dummy_logo = 'http://dummyimage.com/400x400/707070/fff&text=Logo'  %>
+<% dummy_image = 'http://dummyimage.com/150x150/707070/fff&text=Picture'  %>
+<article>
+  <div class="row">
+    <div class="medium-4 columns">
+      <img src="<%= nom.logo %>" alt="<%= nom.name  %>">
+      <% if nom.contacts.present?  %>
+        <div class="team">
+          <h4>Team</h4>
+          <ul class="small-block-grid-5 medium-block-grid-2 large-block-grid-3">
+            <% nom.contacts.each do |contact| %>
+            <li>
+              <a href="<%= contact.linkedin %>"><img src="<%= contact.picture  %>" alt="<%= contact.name %>"></a>
+            </li>
+            <% end  %>
+          </ul>
+        </div>
+      <% end  %>
+    </div>
+    <div class="medium-8 columns end">
+      <h2 class="title"><%= nom.name  %></h2>
+      <div class="row country">
+        <div class="small-4 columns">Country</div>
+        <div class="small-8 columns"><b><%= nom.country  %></b></div>
+      </div>
+      <div class="row category">
+        <div class="small-4 columns">Category</div>
+        <div class="small-8 columns"><b><%= nom.category.name  %></b></div>
+      </div>
+      <% if false  %>
+        <h4>Description</h4>
+        <p class="description"><%= nom.description  %></p>
+      <% end  %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns">
+      <% if current_user  %>
+        <% if voted? nom.category.name %>
+          <div class="button disabled">Voted</div>
+          <p class="button-notice"><small>You have already voted once in this category</small></p>
+        <% else %>
+          <%= link_to "Vote now!", {:controller => 'votes', :action => 'create', :nominee => nom, :user => current_user}, { :class => 'button' }%>
+          <p class="button-notice"><small>Remember you can only vote once in each category</small></p>
+        <% end  %>
+      <% end  %>
+    </div>
+    <div class="medium-8 columns">
+      <% if nom.website.present?  %>
+        <div class="website">
+          <h4>Website</h4>
+          <a href="<%= nom.website %>"><%= nom.website  %></a>
+        </div>
+      <% end  %>
+    </div>
+  </div>
+</article>

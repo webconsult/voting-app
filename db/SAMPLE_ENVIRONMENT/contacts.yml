@@ -1,0 +1,28 @@
+d41d8cd98f00b204e9800998ecf8427e:
+  name: Mark Mann
+  email: m_m@mann.com
+  linkedin: http://linkedin.com/
+  picture: http://lorempixel.com/g/200/200/people/1
+  position: That guy
+  bio: |
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, at quia facere libero iure sapiente porro aut perferendis, pariatur ipsum soluta eius? Eligendi labore alias, vitae eius, dignissimos quod dolor.
+  nominee: google
+
+d41d8cd98f00b204e9800998ecf8427e:
+  name: Stefan Christov
+  email: stefan@christ.com
+  linkedin: http://linkedin.com/
+  picture: http://lorempixel.com/g/200/200/people/2
+  position: Producer
+  bio:
+  nominee: universal_studios
+
+f47d218b8f1d3e23df1e52c3477fe80f:
+  name: David Nielsen
+  email: dn@post.dk
+  linkedin: http://linkedin.com/
+  picture: http://lorempixel.com/g/200/200/people/3
+  position: Post Officer
+  bio:
+  nominee: google
+

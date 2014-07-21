@@ -1,0 +1,15 @@
+google:
+  name: Google
+  website: http://www.google.com/
+  logo: http://lorempixel.com/g/200/200/technics/1/
+  country: USA
+  category: best_caterer
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+
+universal_studios:
+  name: Universal Studios
+  website: http://www.universalstudios.com
+  logo: http://lorempixel.com/g/200/200/technics/2/
+  country: Australia
+  category: indie_producer
+  description: LOREM IPSUM

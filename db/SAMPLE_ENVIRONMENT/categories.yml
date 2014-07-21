@@ -1,0 +1,15 @@
+853ae90f0351324bd73ea615e6487517:
+  name: Actor of the year
+  is_individual: true
+
+indie_producer:
+  name: Indie Producer of the year
+  is_individual: false
+
+best_caterer:
+  name: Best Catering Company
+  is_individual: false
+
+d41d8cd98f00b204e9800998ecf8427e:
+  name: Best Female Lead
+  is_individual: true
